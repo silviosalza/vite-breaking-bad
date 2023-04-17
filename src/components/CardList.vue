@@ -15,11 +15,17 @@ export default{
         <div class="container">
             <ul class="d-flex flex-wrap justify-content-center">
                 <li class="col-2 m-1 " v-for="(card, index) in store.cards" :key="index">
-                    <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="">
+
+                        <img :src= card.card_images[0].image_url  alt="">
+
                     <div class="card-name text-center">
                         {{ card.name }}
                     </div>
-                    <div class="type text-center">{{ card.archetype }}</div>
+
+                    <div class="type text-center">
+                        {{ card.archetype }}
+                    </div>
+
                 </li>
             </ul>
         </div>
