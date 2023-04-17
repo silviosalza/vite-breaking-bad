@@ -1,32 +1,53 @@
 <script>
-import axios from "axios";
+import { store } from '../store';
 export default{
-    name:"CardList",
-    mounted(){
-        axios
-        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
-        .then((resp) => {
-        const myData = resp.data.data;
-        console.log(myData);
-    })
+    name:"CardList",   
+    data(){
+        return {
+            store
+        }
     }
-    
 }
 </script>
 
 <template>
     <section class="card-sect">
         <div class="container">
-            <h2>Carte</h2>
+            <ul class="d-flex flex-wrap justify-content-center">
+                <li class="col-2 m-1 " v-for="(card, index) in store.cards" :key="index">
+                    <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="">
+                    <div class="card-name text-center">
+                        {{ card.name }}
+                    </div>
+                    <div class="type text-center">{{ card.archetype }}</div>
+                </li>
+            </ul>
         </div>
     </section>
 </template>
 
 <style scoped lang="scss">
-
+@use '../styles/partials/variables' as *;
 .card-sect{
-    background-color: #D48F38 ;
-    height: calc(100vh - 100px);
+    background-color: $bg-color ;   
+}
+.container{
+    background-color: white;
+}
+li{
+    list-style: none;
+    background-color: $bg-color ;   
+}
+img{
+    width: 100%;
+}
+.card-name{
+    color: white;
+    font-weight:900
+}
+.type{
+    color: black;
+    font-weight:900
 }
 
 </style>
