@@ -22,9 +22,8 @@ export default{
                 <option :value= "archetype" v-for="archetype in archetypesOptions">{{ archetype }}</option>
             </select>
             <button @click= "$emit('filter')" class="btn btn-success">Filtra</button>
-
         </div>
-
+        <h4 class="text-center">Carte trovate: {{ store.cards.length }} </h4>
     </div>
     
 </template>
@@ -33,6 +32,9 @@ export default{
 .filter-section{
     height: 50px;
     background-color: rgb(41, 41, 59);
+    h4{
+        color: white;
+    }
 
 }
 

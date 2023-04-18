@@ -43,6 +43,7 @@ export default{
           
         }).then((resp)=>{
           this.store.cards = resp.data.data;
+          console.log(this.store.cards.length);
         })
       }
     }
