@@ -20,7 +20,7 @@ export default{
         axios
         .get("https://db.ygoprodeck.com/api/v7/cardinfo.php" ,{
           params: {
-            num: 25,
+            num: 100,
             offset: 0
           }
         })
@@ -31,7 +31,7 @@ export default{
     methods: {
       handlefilter(){
         const paramsRequested = {
-            num: 25,
+            num: 100,
             offset: 0,
           }
 
