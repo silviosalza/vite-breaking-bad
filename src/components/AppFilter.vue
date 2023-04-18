@@ -1,0 +1,40 @@
+<script>
+import { store } from '../store';
+export default{
+    name: "AppFilter",
+    emits: ["filter"],
+    data(){
+        return{
+            store,
+            archetypesOptions:["Alien" , "Ally of Justice", "Ancient Gear"]
+        }
+    }
+    
+}
+
+</script>
+
+<template>
+    <div class="filter-section">
+        <div class="container d-flex justify-content-center ">
+            <select class="form-select w-25 mx-2" name="archetype" id="archetype" v-model="store.selectedArchetype">
+                <option value="">All</option>
+                <option :value= "archetype" v-for="archetype in archetypesOptions">{{ archetype }}</option>
+            </select>
+            <button @click= "$emit('filter')" class="btn btn-warning">Filtra</button>
+
+        </div>
+
+    </div>
+    
+</template>
+
+<style scoped lang="scss">
+.filter-section{
+    height: 50px;
+    background-color: rgb(41, 41, 59);
+
+}
+
+
+</style>

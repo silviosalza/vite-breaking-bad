@@ -38,7 +38,8 @@ export default{
     background-color: $bg-color ;   
 }
 .container{
-    background-color: white;
+    background-color: rgb(41, 41, 59);
+    padding-top: 1rem;
 }
 li{
     list-style: none;
