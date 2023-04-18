@@ -20,7 +20,7 @@ export default{
         axios
         .get("https://db.ygoprodeck.com/api/v7/cardinfo.php" ,{
           params: {
-            num: 100,
+            num: 25,
             offset: 0
           }
         })
@@ -30,14 +30,19 @@ export default{
     },
     methods: {
       handlefilter(){
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php", {
-          params: {
-            num: 100,
+        const paramsRequested = {
+            num: 25,
             offset: 0,
-            archetype: this.store.selectedtype
           }
+
+          if( store.selectedArchetype ){
+            paramsRequested.archetype = this.store.selectedArchetype
+          }
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php", {
+          params: paramsRequested
+          
         }).then((resp)=>{
-          this.store.cards = resp.data.results;
+          this.store.cards = resp.data.data;
         })
       }
     }

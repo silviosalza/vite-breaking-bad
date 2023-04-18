@@ -21,7 +21,7 @@ export default{
                 <option value="">All</option>
                 <option :value= "archetype" v-for="archetype in archetypesOptions">{{ archetype }}</option>
             </select>
-            <button @click= "$emit('filter')" class="btn btn-warning">Filtra</button>
+            <button @click= "$emit('filter')" class="btn btn-success">Filtra</button>
 
         </div>
 
